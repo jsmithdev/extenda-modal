@@ -1,4 +1,4 @@
-# modal
+# extenda-modal
 
 ## An LWC modal with easy to use sizes, attributes and slots 🎰
 
