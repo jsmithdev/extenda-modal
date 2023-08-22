@@ -3,7 +3,7 @@ import { api, track, LightningElement } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 
-export default class Modal extends LightningElement {
+export default class ExtendaModal extends LightningElement {
 
     active
     loading

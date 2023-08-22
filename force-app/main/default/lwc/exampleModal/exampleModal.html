@@ -1,9 +1,8 @@
 <template>
 
-
     <lightning-button label="API Function Demo" onclick={apiFunctions}></lightning-button>
 
-	<c-modal
+	<c-extenda-modal
 		header="Modal Header"
 	>
 		<span slot="content">
@@ -12,7 +11,7 @@
 		<span slot="footer">
 			<lightning-button label="Custom" variant="brand" onclick={apiFunctions}></lightning-button>
 		</span>
-	</c-modal>
+	</c-extenda-modal>
 
 	<br />
 	<br />
@@ -21,7 +20,7 @@
 
     <!-- Quickly setup a modal for by setting header, trigger attributes  -->
 
-    <c-modal
+    <c-extenda-modal
         header="This is a header"
         trigger="Demo text to trigger modal"
         variant="medium">
@@ -34,7 +33,7 @@
 
         </span>
 
-    </c-modal>
+    </c-extenda-modal>
 
     <br />
     <br />
@@ -42,7 +41,7 @@
 
     <!-- Highly customize with slots trigger, header, content and footer -->
  
-    <c-modal variant="medium">
+    <c-extenda-modal variant="medium">
 
         <span slot="trigger">
             <lightning-pill
@@ -86,5 +85,5 @@
 
         </span>
 
-    </c-modal>
+    </c-extenda-modal>
 </template>
