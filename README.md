@@ -19,6 +19,8 @@
 | header    | header / title for modal       | `header="My Title"`       |
 | trigger   | optional text that triggers / opens modal     | `trigger="Click Me"`  |
 | variant  | size of modal (large, medium, small)  | `variant="large"` |
+| is-active  | Auto open modal on connectCallback | `is-active` |
+| empty | only use the view slot; No lightning card, header, footer, etc | `empty` |
 
 ### Slots
 
@@ -29,6 +31,7 @@
 | footer  | footer content  | `<span slot="footer"> { DOM to render } </span>` |
 | footer-center  | footer content to be centered | `<span slot="footer-center"> { DOM to render } </span>` |
 | trigger   | optionally trigger modal from DOM content  |`<span slot="trigger"> { DOM to render } </span>` |
+| view   | For use with the `empty` attribute  |`<span slot="view"> { DOM to render } </span>` |
 
 ## Usage
 

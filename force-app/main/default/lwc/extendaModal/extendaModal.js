@@ -1,12 +1,8 @@
-import { api, track, LightningElement } from 'lwc';
-
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-
+import { api, LightningElement } from 'lwc';
 
 export default class ExtendaModal extends LightningElement {
 
     active
-    loading
     data = []
     is = 'modal'
 
@@ -14,16 +10,20 @@ export default class ExtendaModal extends LightningElement {
     @api trigger
     @api value
     /**
+     * @description {Boolean} if set as an attribute, the modal is auto opened on connectedCallback
+     */
+    @api isActive;
+    /**
+     * @description {Boolean} if set as an attribute, the modal will only use the view slot; No lightning card, header, footer, etc.
+     */
+    @api empty;
+    /**
      * @description {String} small | medium | large
      */
     @api variant
 
     @api open(){
-
-        this.loading = true
-        this.active = true
-
-        this.loading = false
+        this.active = true;
     }
 
     @api close(){
@@ -48,32 +48,7 @@ export default class ExtendaModal extends LightningElement {
         return 'slds-modal slds-fade-in-open slds-modal_medium'
     }
 
-
-    error(message){
-        this.toast(message, 'Error', 'error')
-    }
-
-    toast( message = '', title = 'Info', variant = 'info') {
-        
-        const event = new ShowToastEvent({
-            title,
-            message,
-            variant,
-        })
-
-        this.dispatchEvent(event)
-    }
-    /**
-     * dispatch a (bubbles & composed true) CustomEvent
-     * @param {String} name name of event
-     * @param {Object} detail object to send
-     */
-    dispatch(name, detail = {}){
-
-        this.dispatchEvent(new CustomEvent( name , {
-            bubbles: true, 
-            composed : true,
-            detail
-        }))
+    connectedCallback(){
+        this.active = this.isActive;
     }
 }

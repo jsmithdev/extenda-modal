@@ -8,13 +8,9 @@
 		</div>
     </template>
 
-    <template if:true={loading}>
-		<lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
-    </template>
 
-	<template if:false={loading}>
-
-		<template if:true={active}>
+	<template if:true={active}>
+		<template if:false={empty}>
 			<section
 				role="dialog"
 				tabindex="-1"
@@ -49,7 +45,7 @@
 							Nothing in modal's content slot. See <a href="https://github.com/jsmithdev/modal">readme</a> for more.
 						</slot>
 					</div>
-	
+
 
 
 					<footer class="slds-modal__footer modal-hidden">
@@ -59,8 +55,8 @@
 						</div>
 						
 						<lightning-button 
-                            label="Close"
-                            onclick={close}
+							label="Close"
+							onclick={close}
 						></lightning-button>
 						
 						<slot name="footer"></slot>
@@ -70,6 +66,9 @@
 			</section>
 			<div class="slds-backdrop slds-backdrop_open"></div>
 			
+		</template>
+		<template if:true={empty}>
+			<slot name="view"></slot>
 		</template>
 	</template>
 </template>
